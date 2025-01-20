@@ -1,0 +1,51 @@
+name: Build Resume PDFs
+
+on:
+  push:
+    paths:
+      - 'projects/**'
+      - 'template.tex'
+      - 'resume.cls'
+      - 'build.py'
+      - '.github/workflows/build.yml'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: "3.x"
+
+      - name: LaTeX container environment
+        uses: xu-cheng/latex-action@v3
+        with:
+          # This is the .tex file that gets compiled by default (we ignore its output).
+          root_file: template.tex
+
+          # Hard-code your desired mode/PDF name right in the pre_compile script:
+          pre_compile: |
+            tlmgr update --self
+            tlmgr install collection-fontsextra
+
+            MODE="permutations"      # "combinations" or "permutations"
+            PDF_NAME="AliBakly.pdf"  # rename as needed
+
+            echo "Running build with mode=$MODE, pdf_name=$PDF_NAME"
+            python build.py --mode "$MODE" --pdf_name "$PDF_NAME"
+
+      - name: Commit and push changes
+        run: |
+          git config user.email "action@github.com"
+          git config user.name "GitHub Action"
+          git add output/
+          git commit -m "Update resume PDFs" || echo "No changes to commit"
+          git push

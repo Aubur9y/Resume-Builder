@@ -1,0 +1,126 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Medium Length Professional CV
+% LaTeX Template
+% Version 2.0 (8/5/13)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% Original author:
+% Trey Hunner (http://www.treyhunner.com/)
+%
+% Important note:
+% This template requires the resume.cls file to be in the same directory as the
+% .tex file. The resume.cls file provides the resume style used for structuring the
+% document.
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND OTHER DOCUMENT CONFIGURATIONS
+%----------------------------------------------------------------------------------------
+
+\documentclass{resume} % Use the custom resume.cls style
+
+\usepackage[left=0.5in,top=0.3in,right=0.5in,bottom=0.3in]{geometry} % Document margins
+\usepackage{hyperref}
+\usepackage{xcolor}
+\usepackage{needspace}
+
+%\usepackage{fontawesome5}
+\newsavebox{\skillsbox}
+\newlength{\skillsheight}
+\usepackage{xfakebold}
+
+\newcommand{\fbseries}{\unskip\setBold\aftergroup\unsetBold\aftergroup\ignorespaces}
+\makeatletter
+\newcommand{\setBoldness}[1]{\def\fake@bold{#1}}
+\makeatother
+
+\usepackage{enumitem}
+\RequirePackage{fontawesome}
+\begin{document}
+\setBoldness{0.5}
+\vspace{-35pt}
+
+\begin{center}
+    {\Huge \scshape John Doe} \\ \vspace{1pt}
+    Address $\diamond$ City, Country
+    \\ \vspace{1pt}
+    \small \href{tel:+46123456789}{ \raisebox{-0.1\height}\faPhone\ 
+    \underline{+46123456789} ~} \href{mailto:test@gmail.com}{\raisebox{-0.2\height}\faEnvelope\  \underline{test@gmail.com}} ~  
+    \href{https://www.linkedin.com/in/your_acc/}{\raisebox{-0.2\height}\faLinkedinSquare\ \underline{LinkedIn}}  ~
+    \href{https://github.com/your_acc}{\raisebox{-0.2\height}\faGithub\ \underline{GitHub}}
+    \vspace{-8pt}
+\end{center}
+%----------------------------------------------------------------------------------------
+%	EDUCATION SECTION
+%----------------------------------------------------------------------------------------
+
+%\begin{rSection}{About me}
+%I am a quick learning student currently studying %my second year in engineering mathematics, %looking to gain valuable experience through an %internship or a part-time job. With a serious %nterest in mathematics and experience with %programming through curricular work, I have an %analytical and adaptive mindset. I will be a %valuable resource to your project and a dedicated %team player with a pleasant personality at your %company.
+%\end{rSection}
+
+\begin{rSection}{Education}
+
+\begin{rSubsection}{\underline{School}}{August 2020 - June 2025}{Master of Science in Engineering, Something}{City, Country}
+\item Specialization in Image Analysis and Machine Intelligence.
+
+\item \textcolor{blue}{\href{https://Link.com}{Grades: 4.74/5.00}}.
+\end{rSubsection}
+\vspace{-8pt}
+\begin{rSubsection}{\underline{Seconf School}}{February 2024 - August 2024}{Exchange Studies}{City, Country}
+\item Courses in: Advanced Probability Theory, Computer Vision, Modern NLP, Reinforcement Learning.
+\item \textcolor{blue}{\href{https://Link.com}{Grades: 4.74/5.00}}.
+\end{rSubsection}
+\end{rSection}
+%----------------------------------------------------------------------------------------
+%	WORK EXPERIENCE SECTION
+%----------------------------------------------------------------------------------------
+\vspace{-3mm}
+\begin{rSection}{Experience}
+\begin{rSubsection}
+{\underline{Company}}{August 2022 - Present}{Student Test Engineer (Part-Time)}{City, Country} 
+\item Conducted comprehensive \textbf{testing} of network speaker firmware and software, pinpointing critical defects and verifying new features. 
+\item Utilized \textbf{PuTTY}, \textbf{Wireshark}, and \textbf{Postman} to inspect logs, analyze network traffic, and \textbf{debug complex issues} in real time. 
+\item Created and managed bug reports in \textbf{Jira}, collaborating closely with developers to expedite critical fixes. 
+\item Contributed to \textbf{test automation} efforts in \textbf{Python} for Windows-based applications, for regression testing.
+\item Developed productive relationships with \textbf{developers} and \textbf{product managers} to streamline testing processes. 
+\item \textbf{Mentored} new testers by sharing best practices, troubleshooting methodologies, and QA strategies to maintain high software quality. 
+\end{rSubsection}
+
+\end{rSection}
+\vspace{-3mm}
+
+\begin{rSection}{Projects}
+%PROJECT_CONTENT%
+\end{rSection}
+\vspace{8pt}
+\vspace{-3mm}
+%----------------------------------------------------------------------------------------
+%	TECHNICAL STRENGTHS SECTION
+%----------------------------------------------------------------------------------------
+
+%\newpage
+\sbox{\skillsbox}{% measure how much space needed
+  \begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+  Programming languages  & Java, MATLAB, Python, MySQL, C \\
+  Machine Learning & PyTorch, Keras, Transformers, TRL, Unsloth, NumPy, SciPy \\
+  Version Control & Git \\
+  Languages & Swedish, English, Arabic
+  \end{tabular}%
+}
+\settoheight{\skillsheight}{\usebox{\skillsbox}}
+
+\needspace{\the\skillsheight}
+\begin{rSection}{Skills}
+\begin{tabular}{ @{} >{\bfseries}l @{\hspace{6ex}} l }
+Programming languages  & Java, MATLAB, Python, MySQL, C \\
+Machine Learning & PyTorch, Keras, Transformers, TRL, Unsloth, NumPy, SciPy \\
+Version Control & Git \\
+Languages & Swedish, English, Arabic
+\end{tabular}
+
+\end{rSection}
+
+\end{document}
