@@ -2,6 +2,23 @@
 
 A LaTeX-based automated system for maintaining multiple versions of your resume with different project combinations. This tool solves a common problem in job applications: the need to customize your resume for different positions while keeping the content consistent and professional.
 
+## Example Output
+
+Here's a sample of what the generated resume looks like:
+
+![Resume Example](docs/resume_example.png)
+
+The tool generates multiple versions of this resume with different project combinations. For example, if you have three projects:
+- Optimization For Machine Learning
+- Pricing of Some Exotic Options
+- EPFLLaMA (LLM Project)
+
+It will generate:
+- `output/Optimization_Pricing/YourName.pdf`
+- `output/Optimization_LLM/YourName.pdf`
+- `output/Pricing_LLM/YourName.pdf`
+- `output/Optimization_Pricing_LLM/YourName.pdf`
+
 ## Why Use This?
 
 When applying for different positions, you often want to highlight different projects based on their relevance to each role. For example:
