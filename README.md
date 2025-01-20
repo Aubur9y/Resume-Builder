@@ -49,49 +49,83 @@ This way, you can focus on writing great content while the tool handles the tedi
 ### Prerequisites
 
 - Git
+- GitHub account
 - LaTeX installation (for local builds)
 - Python 3.x (for local builds)
 
-### Quick Start
+### Setup Instructions
 
-1. Clone this repository:
+1. Fork this repository:
+   - Click the "Fork" button at the top right of this repository
+   - Choose your account as the destination
+   - If you want to protect your personal information, select "Private" for repository visibility
+   
+2. Clone your forked repository:
    ```bash
-   git clone https://github.com/yourusername/resume-builder.git
-   cd resume-builder
+   git clone https://github.com/yourusername/Resume-Builder.git
+   cd Resume-Builder
    ```
 
-2. Customize the template:
+3. Set up GitHub Actions:
+   - Go to your repository settings on GitHub
+   - Navigate to Actions > General
+   - Under "Workflow permissions", select "Read and write permissions"
+   - Save the changes
+
+4. Customize the template:
    - Edit `template.tex` with your personal information
    - Replace the details in the header (name, contact info, etc.)
    - Update the Education and Experience sections
    - Modify the Skills section as needed
 
-3. Add your projects:
+5. Add your projects:
    - Create a new `.tex` file for each project in the `projects/` directory
    - Follow the format shown in the example `LLM.tex`
    - Each project file should contain a single `rSubsection` environment
 
-4. Commit and push your changes:
+6. Commit and push your changes:
    ```bash
    git add .
    git commit -m "Update resume content"
    git push
    ```
 
-5. GitHub Actions will automatically:
+7. GitHub Actions will automatically:
    - Build all PDF combinations
    - Commit them to the `output/` directory
    - Push the changes back to your repository
 
-6. Pull the generated PDFs:
+8. Pull the generated PDFs:
    ```bash
    git pull
    ```
 
+### Staying Updated with the Original Template
+
+To get updates from the original template repository:
+
+1. Add the original repository as upstream:
+   ```bash
+   git remote add upstream https://github.com/original-author/Resume-Builder.git
+   ```
+
+2. Whenever you want to pull updates:
+   ```bash
+   git fetch upstream
+   git merge upstream/main
+   ```
+
+### Important Notes
+
+- Consider making your fork private to protect personal information
+- The first GitHub Actions workflow may need manual approval in your repository's Actions tab
+- You can use [skip ci] in your commit message to prevent PDF generation
+- Make sure to grant write permissions to GitHub Actions as described in step 3
+
 ### 📁 Repository Structure
 
 ```
-resume-builder/
+Resume-Builder/
 ├── .github/workflows/
 │   └── build.yml         # GitHub Actions workflow
 ├── projects/
@@ -144,23 +178,30 @@ python build.py --mode combinations --pdf_name YourName.pdf
 ## 💡 Tips
 
 - Use [skip ci] in your commit message to prevent GitHub Actions from building PDFs
-- Keep project descriptions concise and focused
-- Use LaTeX commands for consistent formatting
-- Regular commits will trigger automatic PDF generation
 - Pull after each build to get the latest PDFs
 
 ## 📝 Project File Format
 
-Each project file in the `projects/` directory should follow this structure:
+Each project file in the `projects/` directory should be a `.tex` file containing a single project section. Here's an example from one of the sample projects:
 
 ```latex
 \begin{rSubsection}
-{Project Title}{}{}{} % The extra {} are for date and location if needed
+{\href{https://github.com/YourUsername/Project}{\underline{Optimization For Machine Learning} \href{Project Link}{\raisebox{-0.1\height}\faExternalLink }}}{}{}{}
 
-\item Point 1 about the project
-\item Point 2 about the project
+\item Formulated and implemented cutting-edge optimization algorithms, including Fast Iterative Shrinkage Thresholding Algorithm (FISTA) and Adaptive Proximal Gradient Method(AdProxGD).
+\item Conducted in-depth analysis of convergence guarantees and empirical performance of optimization methods.
+\item Explored the Power Method for constrained quadratic maximization problems.
+\item Applied Mirror Descent algorithms to optimization over the unit simplex.
+\item Developed modular, reproducible Python-based implementations for optimization tasks.
 \end{rSubsection}
+\vspace{-8pt}  % Optional spacing adjustment
 ```
+
+Key points about project files:
+- Save each project as a separate `.tex` file in the `projects/` directory
+- Format bullet points using `\item`
+- Use LaTeX formatting for emphasis where needed (e.g., `\textbf{Python}`)
+
 
 ## 🤝 Contributing
 
