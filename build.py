@@ -89,6 +89,10 @@ class ResumeBuilder:
         # Gather list of all project files, minus the .tex extension
         project_files = [f.stem for f in self.projects_dir.glob("*.tex")]
 
+        # Check if projects folder is empty
+        if not project_files:
+            raise ValueError("The 'projects/' folder is empty. Please add at least one .tex file to generate resumes.")
+
         # Validate subset size bounds
         total_projects = len(project_files)
         if not (1 <= self.min_projects <= total_projects):
