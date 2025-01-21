@@ -126,13 +126,13 @@ def main():
         help="Name of the PDF file inside each output folder. Default = AliBakly.pdf"
     )
     parser.add_argument(
-        "--min-projects",
+        "--min_projects",
         type=int,
         default=2,
         help="Minimum number of projects in each resume. Default = 2."
     )
     parser.add_argument(
-        "--max-projects",
+        "--max_projects",
         type=int,
         default=3,
         help="Maximum number of projects in each resume. Default = 3."
